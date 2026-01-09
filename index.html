@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campus Navigation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      background: #e6f2ff;
+      margin: 0;
+    }
+    .box {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    li {
+      background: #f1f1f1;
+      margin: 5px 0;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h2>Campus Navigation</h2>
+    <input id="place" placeholder="Enter location">
+    <button onclick="add()">Add Location</button>
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    let data = [];
+    function add() {
+      let p = document.getElementById("place").value;
+      if(p==="") return;
+      data.push(p);
+      document.getElementById("place").value="";
+      show();
+    }
+    function show() {
+      let html="";
+      data.forEach(d=>html+="<li>"+d+"</li>");
+      document.getElementById("list").innerHTML=html;
+    }
+  </script>
+</body>
+</html>
